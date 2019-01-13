@@ -16,6 +16,7 @@ public class FlutterFirebaseMessagingService extends FirebaseMessagingService {
     public static final String ACTION_REMOTE_MESSAGE =
             "io.flutter.plugins.firebasemessaging.NOTIFICATION";
     public static final String EXTRA_REMOTE_MESSAGE = "notification";
+    NotificationHandler notificationHandler = new NotificationHandler();
 
     /**
      * Called when message is received.
@@ -32,6 +33,9 @@ public class FlutterFirebaseMessagingService extends FirebaseMessagingService {
             notification = "{ body: " + remoteMessage.getNotification().getBody() + ", title: " + remoteMessage.getNotification().getTitle() + " }";
         }
         Log.d("tag", "onMessageReceived: data: " + data + ", notification: " + notification);
+        if (notificationHandler.handleNotificationData(this, remoteMessage.getData())) {
+            return;
+        }
         Intent intent = new Intent(ACTION_REMOTE_MESSAGE);
         intent.putExtra(EXTRA_REMOTE_MESSAGE, remoteMessage);
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
