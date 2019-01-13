@@ -13,6 +13,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.DrawableRes;
@@ -123,9 +125,9 @@ public class FirebaseMessagingPlugin extends BroadcastReceiver
                 .bigText(body);
         PackageManager pm = context.getPackageManager();
         Intent intent = pm.getLaunchIntentForPackage(context.getPackageName());
-//        Intent intent = new Intent(context, MainActivity.class);
 
         final PendingIntent contentIntent = PendingIntent.getActivity(context, (int) System.currentTimeMillis(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        Uri defaultSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, getDefaultChannel(context))
                 .setContentTitle(title)
                 .setContentText(body)
@@ -135,7 +137,7 @@ public class FirebaseMessagingPlugin extends BroadcastReceiver
                 .setAutoCancel(autoCancel)
                 .setContentIntent(contentIntent)
 //                .setDeleteIntent(dismissPendingIntent)
-//                .setSound(fcmNotification.getSound())
+                .setSound(defaultSound)
                 .setPriority(Notification.PRIORITY_MAX);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             builder.setCategory(Notification.CATEGORY_STATUS);
