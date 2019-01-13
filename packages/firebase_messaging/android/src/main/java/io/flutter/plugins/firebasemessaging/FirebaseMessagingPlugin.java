@@ -15,6 +15,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.LocalBroadcastManager;
@@ -128,7 +129,7 @@ public class FirebaseMessagingPlugin extends BroadcastReceiver
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, getDefaultChannel(context))
                 .setContentTitle(title)
                 .setContentText(body)
-//                .setSmallIcon(fcmNotification.getIcon())
+                .setSmallIcon(getDefaultIcon(context))
 //                .setColor(ContextCompat.getColor(context, R.color.accent))
                 .setStyle(style)
                 .setAutoCancel(autoCancel)
@@ -158,6 +159,32 @@ public class FirebaseMessagingPlugin extends BroadcastReceiver
             return defaultChannelId != null ? defaultChannelId : fallbackChannelId;
         } catch (Exception e) {
             return fallbackChannelId;
+        }
+    }
+
+    private @DrawableRes
+    int getDefaultIcon(Context context) {
+        try {
+            ApplicationInfo app = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
+            Bundle metaData = app.metaData;
+            int defaultNotificationIcon = metaData.getInt("com.google.firebase.messaging.default_notification_icon", 0);
+            Log.d("tag", "defaultNotificationIcon found: " + defaultNotificationIcon);
+            if (defaultNotificationIcon != 0) {
+                return defaultNotificationIcon;
+            }
+            return getAppIcon(context);
+        } catch (Exception e) {
+            return getAppIcon(context);
+        }
+    }
+
+    private int getAppIcon(Context context) {
+        try {
+            int icon = context.getPackageManager().getApplicationInfo(context.getPackageName(), 0).icon;
+            Log.d("tag", "getPackageManager icon found: " + icon);
+            return icon;
+        } catch (Exception e) {
+            return 0;
         }
     }
 
