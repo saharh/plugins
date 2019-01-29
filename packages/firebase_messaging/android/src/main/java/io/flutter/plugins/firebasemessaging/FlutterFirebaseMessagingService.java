@@ -5,15 +5,18 @@
 package io.flutter.plugins.firebasemessaging;
 
 import android.content.Intent;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 public class FlutterFirebaseMessagingService extends FirebaseMessagingService {
 
   public static final String ACTION_REMOTE_MESSAGE =
       "io.flutter.plugins.firebasemessaging.NOTIFICATION";
   public static final String EXTRA_REMOTE_MESSAGE = "notification";
+  NotificationHandler notificationHandler = new NotificationHandler();
 
   /**
    * Called when message is received.
@@ -22,6 +25,9 @@ public class FlutterFirebaseMessagingService extends FirebaseMessagingService {
    */
   @Override
   public void onMessageReceived(RemoteMessage remoteMessage) {
+    if (notificationHandler.handleNotificationData(this, remoteMessage.getData())) {
+      return;
+    }
     Intent intent = new Intent(ACTION_REMOTE_MESSAGE);
     intent.putExtra(EXTRA_REMOTE_MESSAGE, remoteMessage);
     LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
