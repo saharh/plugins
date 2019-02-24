@@ -25,9 +25,7 @@ public class FlutterFirebaseMessagingService extends FirebaseMessagingService {
    */
   @Override
   public void onMessageReceived(RemoteMessage remoteMessage) {
-    if (notificationHandler.handleNotificationData(this, remoteMessage.getData())) {
-      return;
-    }
+    notificationHandler.handleNotificationData(this, remoteMessage.getData());
     Intent intent = new Intent(ACTION_REMOTE_MESSAGE);
     intent.putExtra(EXTRA_REMOTE_MESSAGE, remoteMessage);
     LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
