@@ -1,6 +1,7 @@
 package io.flutter.plugins.firebasemessaging;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -23,6 +24,22 @@ import androidx.core.app.NotificationCompat;
 import static android.content.Context.NOTIFICATION_SERVICE;
 
 public class NotificationHandler {
+
+    public void initNotificationChannels(Context context) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            return;
+        }
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        String defaultChannelId = context.getString(R.string.default_notification_channel_id);
+        //noinspection ConstantConditions
+        if (notificationManager.getNotificationChannel(defaultChannelId) != null) {
+            return;
+        }
+        NotificationChannel channel = new NotificationChannel(defaultChannelId, "Default", NotificationManager.IMPORTANCE_HIGH);
+        channel.setDescription("Default");
+        notificationManager.createNotificationChannel(channel);
+    }
+
 
     public boolean handleNotificationData(Context context, Map<String, String> data) {
         if (data == null || !"notification".equals(data.get("type"))) {
@@ -84,16 +101,17 @@ public class NotificationHandler {
     }
 
     private String getDefaultChannel(Context context) {
-        String fallbackChannelId = "DEFAULT";
-        try {
-            ApplicationInfo app = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
-            Bundle metaData = app.metaData;
-            String defaultChannelId = metaData.getString("com.google.firebase.messaging.default_notification_channel_id");
-            Log.d("tag", "defaultChannelId found: " + defaultChannelId);
-            return defaultChannelId != null ? defaultChannelId : fallbackChannelId;
-        } catch (Exception e) {
-            return fallbackChannelId;
-        }
+        return context.getString(R.string.default_notification_channel_id);
+//        String fallbackChannelId = context.getString(R.string.default_notification_channel_id);
+//        try {
+//            ApplicationInfo app = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
+//            Bundle metaData = app.metaData;
+//            String defaultChannelId = metaData.getString("com.google.firebase.messaging.default_notification_channel_id");
+//            Log.d("tag", "defaultChannelId found: " + defaultChannelId);
+//            return defaultChannelId != null ? defaultChannelId : fallbackChannelId;
+//        } catch (Exception e) {
+//            return fallbackChannelId;
+//        }
     }
 
     @DrawableRes
