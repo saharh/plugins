@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/code_worked_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/global_bg"
     android:orientation="vertical"
     android:paddingBottom="30dp">
 
@@ -13,10 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingBottom="10dp"
         android:paddingLeft="20dp"
+        android:paddingTop="20dp"
         android:paddingRight="20dp"
-        android:paddingTop="20dp">
+        android:paddingBottom="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,28 +23,28 @@
             android:orientation="horizontal">
 
             <TextView
-                android:textSize="24sp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:text="@string/great"
+                android:textSize="24sp"
                 android:textStyle="bold"/>
 
             <!--<ImageView-->
-                <!--android:layout_width="30dp"-->
-                <!--android:layout_height="30dp"-->
-                <!--android:src="@mipmap/ic_launcher"/>-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:src="@mipmap/ic_launcher"/>-->
         </LinearLayout>
 
         <TextView
-            android:textSize="16sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:lineSpacingExtra="2dp"
-            android:text="@string/code_worked_explain"/>
+            android:text="@string/code_worked_explain"
+            android:textSize="16sp"/>
     </LinearLayout>
 
     <ScrollView
@@ -68,47 +67,47 @@
                 android:layout_marginTop="16dp"
                 android:background="#479e53"
                 android:gravity="center"
-                android:paddingBottom="10dp"
-                android:paddingEnd="20dp"
                 android:paddingStart="20dp"
                 android:paddingTop="10dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="10dp"
                 android:text="@string/code_worked_rate_app"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"/>
-                <!--app:iiv_start_color="@color/white"-->
-                <!--app:iiv_start_icon="gmd_star"-->
-                <!--app:iiv_start_size="20dp"-->
-                <!--/>-->
+            <!--app:iiv_start_color="@color/white"-->
+            <!--app:iiv_start_icon="gmd_star"-->
+            <!--app:iiv_start_size="20dp"-->
+            <!--/>-->
 
             <!--<com.mikepenz.iconics.view.IconicsTextView-->
-                <!--android:id="@+id/share_app_btn"-->
-                <!--android:layout_width="240dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_gravity="center_horizontal"-->
-                <!--android:layout_marginTop="16dp"-->
-                <!--android:background="@drawable/btn_secondary_bg"-->
-                <!--android:gravity="center"-->
-                <!--android:paddingBottom="10dp"-->
-                <!--android:paddingEnd="20dp"-->
-                <!--android:paddingStart="20dp"-->
-                <!--android:paddingTop="10dp"-->
-                <!--android:text="@string/share_app"-->
-                <!--android:textAppearance="@style/Wabi.Text.Large"-->
-                <!--android:textColor="@color/white"-->
-                <!--android:textSize="16sp"-->
-                <!--app:iiv_start_color="@color/white"-->
-                <!--app:iiv_start_icon="gmd_share"-->
-                <!--app:iiv_start_size="20dp"/>-->
+            <!--android:id="@+id/share_app_btn"-->
+            <!--android:layout_width="240dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:layout_marginTop="16dp"-->
+            <!--android:background="@drawable/btn_secondary_bg"-->
+            <!--android:gravity="center"-->
+            <!--android:paddingBottom="10dp"-->
+            <!--android:paddingEnd="20dp"-->
+            <!--android:paddingStart="20dp"-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:text="@string/share_app"-->
+            <!--android:textAppearance="@style/Wabi.Text.Large"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="16sp"-->
+            <!--app:iiv_start_color="@color/white"-->
+            <!--app:iiv_start_icon="gmd_share"-->
+            <!--app:iiv_start_size="20dp"/>-->
             <TextView
                 android:id="@+id/done"
-                android:textSize="18sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:padding="10dp"
                 android:text="@string/done"
-                android:textColor="#3c7b44"/>
+                android:textColor="#3c7b44"
+                android:textSize="18sp"/>
 
         </LinearLayout>
     </ScrollView>

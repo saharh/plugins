@@ -39,6 +39,12 @@ public class WACodeWorkedDialogFragment extends BaseDialogFragment {
                 onRateAppClicked();
             }
         });
+        view.findViewById(R.id.done).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onDoneClicked();
+            }
+        });
     }
 
     @NonNull
