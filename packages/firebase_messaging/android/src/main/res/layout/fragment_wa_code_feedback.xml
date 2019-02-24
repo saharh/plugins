@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/did_it_work_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -24,28 +23,28 @@
             android:orientation="horizontal">
 
             <TextView
-                android:textSize="24sp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:text="@string/did_it_work"
+                android:textSize="24sp"
                 android:textStyle="bold"/>
 
             <!--<ImageView-->
-                <!--android:layout_width="30dp"-->
-                <!--android:layout_height="30dp"-->
-                <!--android:src="@mipmap/ic_launcher"/>-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:src="@mipmap/ic_launcher"/>-->
         </LinearLayout>
 
         <TextView
-            android:textSize="16sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:lineSpacingExtra="2dp"
-            android:text="@string/did_it_work_explain"/>
+            android:text="@string/did_it_work_explain"
+            android:textSize="16sp"/>
     </LinearLayout>
 
     <ScrollView
@@ -60,7 +59,7 @@
             android:paddingLeft="30dp"
             android:paddingRight="30dp">
 
-            <com.mikepenz.iconics.view.IconicsTextView
+            <TextView
                 android:id="@+id/it_worked_btn"
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
@@ -73,14 +72,10 @@
                 android:paddingEnd="20dp"
                 android:paddingBottom="10dp"
                 android:text="@string/yes_it_worked"
-                android:textAppearance="@style/Wabi.Text.Large"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                app:iiv_start_color="@color/white"
-                app:iiv_start_icon="gmd_check"
-                app:iiv_start_size="20dp"/>
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"/>
 
-            <com.mikepenz.iconics.view.IconicsTextView
+            <TextView
                 android:id="@+id/got_code_didnt_work_btn"
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
@@ -93,14 +88,10 @@
                 android:paddingEnd="20dp"
                 android:paddingBottom="10dp"
                 android:text="@string/got_code_didnt_work"
-                android:textAppearance="@style/Wabi.Text.Large"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                app:iiv_start_color="@color/white"
-                app:iiv_start_icon="gmd_report_problem"
-                app:iiv_start_size="20dp"/>
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"/>
 
-            <com.mikepenz.iconics.view.IconicsTextView
+            <TextView
                 android:id="@+id/didnt_get_code_btn"
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
@@ -113,12 +104,8 @@
                 android:paddingEnd="20dp"
                 android:paddingBottom="10dp"
                 android:text="@string/didnt_get_code"
-                android:textAppearance="@style/Wabi.Text.Large"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                app:iiv_start_color="@color/white"
-                app:iiv_start_icon="gmd_report_problem"
-                app:iiv_start_size="20dp"/>
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/skip"
