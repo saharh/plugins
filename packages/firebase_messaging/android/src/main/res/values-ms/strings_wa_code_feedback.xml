@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+    <string name="did_it_work_explain">Anda seharusnya telah menerima kod pengesahan untuk WhatsApp sekarang.\n\nAdakah anda telah menerima kod?\nAdakah kod boleh digunakan?</string>
+    <string name="yes_it_worked">Ya, ia berfungsi!</string>
+    <string name="got_code_didnt_work">Saya mendapat kod, tetapi ia tidak berfungsi!</string>
+    <string name="didnt_get_code">Saya tidak mendapat sebarang kod!</string>
+    <string name="did_it_work">Adakah ia berfungsi?</string>
+    <string name="great">Hebat!</string>
+    <string name="code_worked_explain">Sekarang, kami akan seronok jika anda boleh memberikan sedikit masa dan menilai kami 5 Stars!\nIa benar-benar penting untuk kami!</string>
+    <string name="code_worked_rate_app">Nilaikan Aplikasi</string>
+    <string name="share_app">Kongsi Aplikasi</string>
+    <string name="oops">Oops…</string>
+    <string name="sorry_about_that">Maaf tentang hal tersebut!\n\nAdakah anda boleh menghantar maklum balas, menjelaskan apa yang berlaku?</string>
+    <string name="code_fail_send_feedback">Hantar Maklumbalas</string>
+    <string name="done">Selesai</string>
+    <string name="skip">Langkau</string>
+    <string name="open_wabi">Sila buka aplikasi Wabi untuk melihat jika kod yang terkini yang tersedia</string>
+</resources>

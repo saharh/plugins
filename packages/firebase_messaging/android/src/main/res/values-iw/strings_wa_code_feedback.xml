@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="did_it_work_explain">היית אמור לקבל את קוד האימות עבור WhatsApp עד עכשיו.\n\nהאם קיבלת את הקוד?\nהאם הקוד עבד?</string>
+    <string name="yes_it_worked">כן, הקוד עבד!</string>
+    <string name="got_code_didnt_work">קיבלתי את הקוד, אבל הוא לא עבד!</string>
+    <string name="didnt_get_code">לא קיבלתי שום קוד!</string>
+    <string name="did_it_work">זה עבד?</string>
+    <string name="great">מעולה!</string>
+    <string name="code_worked_explain">כעת, אנו רק מבקשים דקה מזמנך לדרג אותנו 5 כוכבים!\n\nזה ממש חשוב לנו!\n</string>
+    <string name="code_worked_rate_app">דרג אותנו</string>
+    <string name="share_app">שתף אפליקציה</string>
+    <string name="oops">אופס…</string>
+    <string name="sorry_about_that">מתנצלים על כך!\n\nאיכפת לך לשלוח לנו משוב, ולהסביר מה קרה?</string>
+    <string name="code_fail_send_feedback">שלח משוב</string>
+    <string name="done">סיום</string>
+    <string name="skip">דלג</string>
+    <string name="open_wabi">נא לפתוח את האפליקציה Wabi לראות אם הקוד העדכני זמין</string>
+</resources>

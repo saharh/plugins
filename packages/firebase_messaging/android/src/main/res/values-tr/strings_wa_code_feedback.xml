@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+    <string name="did_it_work_explain">WhatsApp için doğrulama kodu gelmiş olmalı.\n\nKodu aldınız mı?\nKod işe yaradı mı?</string>
+    <string name="yes_it_worked">Evet, işe yaradı!</string>
+    <string name="got_code_didnt_work">Kodu aldım ama işe yaramadı!</string>
+    <string name="didnt_get_code">Herhangi bir kod almadım!</string>
+    <string name="did_it_work">İşe yaradı mı?</string>
+    <string name="great">Harika!</string>
+    <string name="code_worked_explain">Şimdi sizden yalnızca bir dakikanızı ayırıp bizi değerlendirmenizi istiyoruz 5 yıldız!\n\nBu bizim için gerçekten çok önemli!</string>
+    <string name="code_worked_rate_app">Uygulamayı Değerlendirin</string>
+    <string name="share_app">Uygulamayı Paylaşın</string>
+    <string name="oops">Olamaz…</string>
+    <string name="sorry_about_that">Üzgünüz!\nNe olduğunu bize açıklayan bir geri bildirim göndermek ister misiniz?</string>
+    <string name="code_fail_send_feedback">Geri Bildirim Gönder</string>
+    <string name="done">Bitti</string>
+    <string name="skip">Geç</string>
+    <string name="open_wabi">son kod mevcut olmadığını görmek için Wabi uygulamasını açın</string>
+</resources>

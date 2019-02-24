@@ -6,7 +6,7 @@
     <string name="didnt_get_code">I didn\'t get any code!</string>
     <string name="did_it_work">Did it work?</string>
     <string name="great">Great!</string>
-    <string name="code_worked_explain">Now, we only ask if you could spare a moment and rate us  {gmd-star}{gmd-star}{gmd-star}{gmd-star}{gmd-star}!\n\nIt\'s really important for us!\n</string>
+    <string name="code_worked_explain">Now, we only ask if you could spare a moment and rate us 5 stars!\n\nIt\'s really important for us!\n</string>
     <string name="code_worked_rate_app">Rate App</string>
     <string name="share_app">Share App</string>
     <string name="oops">Oops…</string>

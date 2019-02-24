@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+    <string name="did_it_work_explain">आपको अब तक व्हाट्सएप के लिए सत्यापन कोड प्राप्त हो जाना चाहिए था। \n\nक्या आपको कोड मिला है? \nक्या कोड ने काम किया?</string>
+    <string name="yes_it_worked">हां, इसने काम किया!</string>
+    <string name="got_code_didnt_work">मुझे कोड मिल गया है, लेकिन उसने काम नहीं किया!</string>
+    <string name="didnt_get_code">मुझे कोई कोड नहीं मिला है!</string>
+    <string name="did_it_work">क्या इसने काम किया?</string>
+    <string name="great">बहुत अच्छे!</string>
+    <string name="code_worked_explain">अब हम आपसे केवल यही कहेंगे कि आप हमें रेट करने के लिए कुछ समय निकालें 5 सितारे! \n\nयह हमारे लिए बहुत महत्वपूर्ण है!</string>
+    <string name="code_worked_rate_app">ऐप को रेट करें</string>
+    <string name="share_app">ऐप साझा करें</string>
+    <string name="oops">ओह…</string>
+    <string name="sorry_about_that">हम उसके लिए क्षमा चाहते हैं! \n\nक्या आप हमें यह फीडबैक भेजना चाहेंगे कि क्या हुआ है?</string>
+    <string name="code_fail_send_feedback">फीडबैक भेजें</string>
+    <string name="done">पूरा हुआ</string>
+    <string name="skip">छोड़ें</string>
+    <string name="open_wabi">कृपया अगर नवीनतम कोड उपलब्ध देखने के लिए Wabi एप्लिकेशन को खोलने</string>
+</resources>

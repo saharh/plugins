@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+    <string name="did_it_work_explain">Вы уже должны были получить код проверки WhatsApp.\n\nВы получили код?\nКод не действует?</string>
+    <string name="yes_it_worked">Все работает!</string>
+    <string name="got_code_didnt_work">Код получен, но не действует!</string>
+    <string name="didnt_get_code">Код не получен!</string>
+    <string name="did_it_work">Все работает?</string>
+    <string name="great">Отлично!</string>
+    <string name="code_worked_explain">Теперь единственное, о чем мы хотим попросить, -  оцените нас 5 звезд!\n\nДля нас это очень важно!</string>
+    <string name="code_worked_rate_app">Оценить приложение</string>
+    <string name="share_app">Поделиться приложением</string>
+    <string name="oops">Ой…</string>
+    <string name="sorry_about_that">Извините!\n\nНе могли бы вы отправить нам отзыв с объяснением того, что случилось?</string>
+    <string name="code_fail_send_feedback">Отправить отзыв</string>
+    <string name="done">Готово</string>
+    <string name="skip">Пропустить</string>
+    <string name="open_wabi">Пожалуйста, откройте Ваби приложение, чтобы увидеть, если последний код доступен</string>
+</resources>

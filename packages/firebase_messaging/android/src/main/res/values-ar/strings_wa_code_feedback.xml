@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+    <string name="did_it_work_explain">يجب أن تكون قد حصلت على رمز التحقق الخاص بتطبيق واتساب الآن.\n\nهل تلقيت الرمز؟\nهل نجح الرمز؟</string>
+    <string name="yes_it_worked">نعم، لقد نجح!</string>
+    <string name="got_code_didnt_work">لقد تلقيت الرمز، ولكنه لم يعمل!</string>
+    <string name="didnt_get_code">لم اتلقى أي رموز!</string>
+    <string name="did_it_work">هل نجح؟</string>
+    <string name="great">عظيم!</string>
+    <string name="code_worked_explain">الآن، نحن لا نطلب سوى تخصيص دقيقة إن استطعت لتقييم التطبيق 5 نجوم!\n\nهذا الأمر في غاية الأهمية بالنسبة لنا!</string>
+    <string name="code_worked_rate_app">تقييم التطبيق</string>
+    <string name="share_app">مشاركة التطبيق</string>
+    <string name="oops">عذرًا…</string>
+    <string name="sorry_about_that">نأسف بشأن ذلك!\n\nهل ترغب في إرسال تعقيب لنا، لشرح ما حدث؟</string>
+    <string name="code_fail_send_feedback">إرسال تعقيب</string>
+    <string name="done">تم</string>
+    <string name="skip">تخطي</string>
+    <string name="open_wabi">الرجاء فتح التطبيق ابي لمعرفة ما إذا أحدث كود متاح</string>
+</resources>

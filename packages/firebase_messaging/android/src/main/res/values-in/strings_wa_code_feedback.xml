@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+    <string name="did_it_work_explain">Sekarang seharusnya Anda sudah menerima kode verifikasi untuk WhatsApp.\n			\nApakah Anda sudah menerima kode? 			\nApakah kode tersebut bisa digunakan?</string>
+    <string name="yes_it_worked">Ya, bisa digunakan!</string>
+    <string name="got_code_didnt_work">Saya sudah menerima kodenya, tetapi tidak bisa digunakan!</string>
+    <string name="didnt_get_code">Saya tidak menerima kodenya!</string>
+    <string name="did_it_work">Apakah bisa digunakan?</string>
+    <string name="great">Bagus!</string>
+    <string name="code_worked_explain">Sekarang, kami meminta Anda meluangkan waktu untuk memberi kami nilai 5 bintang!\n\nNilai dari Anda sangat penting bagi kami!</string>
+    <string name="code_worked_rate_app">Beri Nilai Aplikasi</string>
+    <string name="share_app">Bagikan Aplikasi</string>
+    <string name="oops">Aduh…</string>
+    <string name="sorry_about_that">Mohon maaf! \n\nBersediakah Anda mengirimkan masukan kepada kami dengan menjelaskan yang terjadi?</string>
+    <string name="code_fail_send_feedback">Kirim Masukan</string>
+    <string name="done">Selesai</string>
+    <string name="skip">Lewati</string>
+    <string name="open_wabi">Silahkan buka Wabi aplikasi untuk melihat apakah kode terbaru yang tersedia</string>
+</resources>

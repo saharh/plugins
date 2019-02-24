@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+    <string name="did_it_work_explain">Você já deveria ter recebido o código de confirmação do WhatsApp.\n\nVocê já recebeu o código?\nO código funcionou?</string>
+    <string name="yes_it_worked">Sim, funcionou!</string>
+    <string name="got_code_didnt_work">Eu recebi o código, mas não funcionou!</string>
+    <string name="didnt_get_code">Eu não recebi nenhum código!</string>
+    <string name="did_it_work">Funcionou?</string>
+    <string name="great">Ótimo!</string>
+    <string name="code_worked_explain">Agora, só pedimos que você separe um momento e nos avalie com 5 estrelas!\n\nÉ realmente importante para nós!</string>
+    <string name="code_worked_rate_app">Avaliar app</string>
+    <string name="share_app">Compartilhar app</string>
+    <string name="oops">Opa…</string>
+    <string name="sorry_about_that">Pedimos desculpas por isso! \n\nVocê poderia nos enviar um feedback explicando o que aconteceu?</string>
+    <string name="code_fail_send_feedback">Enviar feedback</string>
+    <string name="done">Concluído</string>
+    <string name="skip">Pular</string>
+    <string name="open_wabi">Por favor, abra Wabi aplicativo para ver se o código mais recente disponível</string>
+</resources>
