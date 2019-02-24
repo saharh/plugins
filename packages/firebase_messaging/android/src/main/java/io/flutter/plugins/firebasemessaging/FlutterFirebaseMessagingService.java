@@ -13,21 +13,27 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 public class FlutterFirebaseMessagingService extends FirebaseMessagingService {
 
-  public static final String ACTION_REMOTE_MESSAGE =
-      "io.flutter.plugins.firebasemessaging.NOTIFICATION";
-  public static final String EXTRA_REMOTE_MESSAGE = "notification";
-  NotificationHandler notificationHandler = new NotificationHandler();
+    public static final String ACTION_REMOTE_MESSAGE =
+            "io.flutter.plugins.firebasemessaging.NOTIFICATION";
+    public static final String EXTRA_REMOTE_MESSAGE = "notification";
+    NotificationHandler notificationHandler = new NotificationHandler();
 
-  /**
-   * Called when message is received.
-   *
-   * @param remoteMessage Object representing the message received from Firebase Cloud Messaging.
-   */
-  @Override
-  public void onMessageReceived(RemoteMessage remoteMessage) {
-    notificationHandler.handleNotificationData(this, remoteMessage.getData());
-    Intent intent = new Intent(ACTION_REMOTE_MESSAGE);
-    intent.putExtra(EXTRA_REMOTE_MESSAGE, remoteMessage);
-    LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
-  }
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        notificationHandler.initNotificationChannels(this);
+    }
+
+    /**
+     * Called when message is received.
+     *
+     * @param remoteMessage Object representing the message received from Firebase Cloud Messaging.
+     */
+    @Override
+    public void onMessageReceived(RemoteMessage remoteMessage) {
+        notificationHandler.handleNotificationData(this, remoteMessage.getData());
+        Intent intent = new Intent(ACTION_REMOTE_MESSAGE);
+        intent.putExtra(EXTRA_REMOTE_MESSAGE, remoteMessage);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
+    }
 }
