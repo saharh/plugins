@@ -13,6 +13,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.applaudsoft.wabi.virtual_number.fragments.dialog.WACodeFeedbackActivity;
+
 import java.util.Map;
 
 import androidx.annotation.DrawableRes;
@@ -34,7 +36,13 @@ public class NotificationHandler {
         if (autoCancelStr != null && autoCancelStr.equals("false")) {
             autoCancel = false;
         }
-        showNotification(context, title, body, tag, autoCancel);
+        if (tag != null && tag.equalsIgnoreCase("FCMMessageWACodeFeedbackDialog")) {
+            Intent intent = new Intent(context, WACodeFeedbackActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+            context.startActivity(intent);
+        } else {
+            showNotification(context, title, body, tag, autoCancel);
+        }
         return true;
     }
 

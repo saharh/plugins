@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="did_it_work_explain">You should\'ve received the verification code for WhatsApp by now.\n\nHave you received the code?\nDid the code work?</string>
+    <string name="yes_it_worked">Yes, it worked!</string>
+    <string name="got_code_didnt_work">I got the code, but it didn\'t work!</string>
+    <string name="didnt_get_code">I didn\'t get any code!</string>
+    <string name="did_it_work">Did it work?</string>
+    <string name="great">Great!</string>
+    <string name="code_worked_explain">Now, we only ask if you could spare a moment and rate us  {gmd-star}{gmd-star}{gmd-star}{gmd-star}{gmd-star}!\n\nIt\'s really important for us!\n</string>
+    <string name="code_worked_rate_app">Rate App</string>
+    <string name="share_app">Share App</string>
+    <string name="oops">Oops…</string>
+    <string name="sorry_about_that">Sorry about that!\n\nWould you care to send us feedback, explaining what happened?</string>
+    <string name="open_wabi">Please open Wabi app to see if the latest code available</string>
+    <string name="code_fail_send_feedback">Send Feedback</string>
+    <string name="done">Done</string>
+    <string name="skip">Skip</string>
+</resources>
