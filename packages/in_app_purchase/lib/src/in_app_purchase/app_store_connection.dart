@@ -5,7 +5,7 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
-import 'package:in_app_purchase/src/in_app_purchase_connection/purchase_details.dart';
+import 'package:in_app_purchase/src/in_app_purchase/purchase_details.dart';
 
 import 'in_app_purchase_connection.dart';
 import 'product_details.dart';
@@ -44,20 +44,21 @@ class AppStoreConnection implements InAppPurchaseConnection {
   Future<bool> isAvailable() => SKPaymentQueueWrapper.canMakePayments();
 
   @override
-  void buyNonConsumable({@required PurchaseParam purchaseParam}) {
-    _skPaymentQueueWrapper.addPayment(SKPaymentWrapper(
+  Future<bool> buyNonConsumable({@required PurchaseParam purchaseParam}) async {
+    await _skPaymentQueueWrapper.addPayment(SKPaymentWrapper(
         productIdentifier: purchaseParam.productDetails.id,
         quantity: 1,
         applicationUsername: purchaseParam.applicationUserName,
         simulatesAskToBuyInSandbox: purchaseParam.sandboxTesting,
         requestData: null));
+    return true; // There's no error feedback from iOS here to return.
   }
 
   @override
-  void buyConsumable(
+  Future<bool> buyConsumable(
       {@required PurchaseParam purchaseParam, bool autoConsume = true}) {
     assert(autoConsume == true, 'On iOS, we should always auto consume');
-    buyNonConsumable(purchaseParam: purchaseParam);
+    return buyNonConsumable(purchaseParam: purchaseParam);
   }
 
   @override

@@ -50,6 +50,14 @@ class Convert {
           return BitmapDescriptorFactory.fromAsset(
               FlutterMain.getLookupKeyForAsset(toString(data.get(1)), toString(data.get(2))));
         }
+      case "fromAssetImage":
+        if (data.size() == 3) {
+          return BitmapDescriptorFactory.fromAsset(
+              FlutterMain.getLookupKeyForAsset(toString(data.get(1))));
+        } else {
+          throw new IllegalArgumentException(
+              "'fromAssetImage' Expected exactly 3 arguments, got: " + data.size());
+        }
       case "fromBytes":
         return getBitmapFromBytes(data);
       default:
@@ -134,7 +142,7 @@ class Convert {
     return ((Number) o).intValue();
   }
 
-  static Object latlngBoundsToJson(CameraPosition position) {
+  static Object cameraPositionToJson(CameraPosition position) {
     if (position == null) {
       return null;
     }
@@ -144,6 +152,13 @@ class Convert {
     data.put("tilt", position.tilt);
     data.put("zoom", position.zoom);
     return data;
+  }
+
+  static Object latlngBoundsToJson(LatLngBounds latLngBounds) {
+    final Map<String, Object> arguments = new HashMap<>(2);
+    arguments.put("southwest", latLngToJson(latLngBounds.southwest));
+    arguments.put("northeast", latLngToJson(latLngBounds.northeast));
+    return arguments;
   }
 
   static Object markerIdToJson(String markerId) {
@@ -164,15 +179,17 @@ class Convert {
     return data;
   }
 
-  static Object latLngToJson(LatLng latLng) {
-    return Arrays.asList(latLng.latitude, latLng.longitude);
+  static Object circleIdToJson(String circleId) {
+    if (circleId == null) {
+      return null;
+    }
+    final Map<String, Object> data = new HashMap<>(1);
+    data.put("circleId", circleId);
+    return data;
   }
 
-  public static Object latlngBoundsToJson(LatLngBounds latLngBounds) {
-    final Map<String, Object> arguments = new HashMap<>(2);
-    arguments.put("southwest", latLngToJson(latLngBounds.southwest));
-    arguments.put("northeast", latLngToJson(latLngBounds.northeast));
-    return arguments;
+  static Object latLngToJson(LatLng latLng) {
+    return Arrays.asList(latLng.latitude, latLng.longitude);
   }
 
   private static LatLng toLatLng(Object o) {
@@ -268,6 +285,10 @@ class Convert {
     final Object myLocationEnabled = data.get("myLocationEnabled");
     if (myLocationEnabled != null) {
       sink.setMyLocationEnabled(toBoolean(myLocationEnabled));
+    }
+    final Object myLocationButtonEnabled = data.get("myLocationButtonEnabled");
+    if (myLocationButtonEnabled != null) {
+      sink.setMyLocationButtonEnabled(toBoolean(myLocationButtonEnabled));
     }
   }
 
@@ -394,6 +415,48 @@ class Convert {
       throw new IllegalArgumentException("polylineId was null");
     } else {
       return polylineId;
+    }
+  }
+
+  static String interpretCircleOptions(Object o, CircleOptionsSink sink) {
+    final Map<?, ?> data = toMap(o);
+    final Object consumeTapEvents = data.get("consumeTapEvents");
+    if (consumeTapEvents != null) {
+      sink.setConsumeTapEvents(toBoolean(consumeTapEvents));
+    }
+    final Object fillColor = data.get("fillColor");
+    if (fillColor != null) {
+      sink.setFillColor(toInt(fillColor));
+    }
+    final Object strokeColor = data.get("strokeColor");
+    if (strokeColor != null) {
+      sink.setStrokeColor(toInt(strokeColor));
+    }
+    final Object visible = data.get("visible");
+    if (visible != null) {
+      sink.setVisible(toBoolean(visible));
+    }
+    final Object strokeWidth = data.get("strokeWidth");
+    if (strokeWidth != null) {
+      sink.setStrokeWidth(toInt(strokeWidth));
+    }
+    final Object zIndex = data.get("zIndex");
+    if (zIndex != null) {
+      sink.setZIndex(toFloat(zIndex));
+    }
+    final Object center = data.get("center");
+    if (center != null) {
+      sink.setCenter(toLatLng(center));
+    }
+    final Object radius = data.get("radius");
+    if (radius != null) {
+      sink.setRadius(toDouble(radius));
+    }
+    final String circleId = (String) data.get("circleId");
+    if (circleId == null) {
+      throw new IllegalArgumentException("circleId was null");
+    } else {
+      return circleId;
     }
   }
 
