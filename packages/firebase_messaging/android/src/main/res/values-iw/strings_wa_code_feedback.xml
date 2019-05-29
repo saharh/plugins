@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="did_it_work_explain">היית אמור לקבל את קוד האימות עבור WhatsApp עד עכשיו.\n\nהאם קיבלת את הקוד?\nהאם הקוד עבד?</string>
+    <string name="did_it_work_explain">היית אמור לקבל את קוד האימות עד עכשיו.\n\nהאם קיבלת את הקוד?\nהאם הקוד עבד?</string>
     <string name="yes_it_worked">כן, הקוד עבד!</string>
     <string name="got_code_didnt_work">קיבלתי את הקוד, אבל הוא לא עבד!</string>
     <string name="didnt_get_code">לא קיבלתי שום קוד!</string>

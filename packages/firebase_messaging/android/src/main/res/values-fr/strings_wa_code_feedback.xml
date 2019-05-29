@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><resources>
-    <string name="did_it_work_explain">Vous devriez avoir reçu le code de vérification pour WhatsApp à présent.\n\nAvez-vous reçu le code ?\nLe code a-t-il fonctionné ?</string>
+    <string name="did_it_work_explain">Vous devriez avoir reçu le code de vérification à présent.\n\nAvez-vous reçu le code ?\nLe code a-t-il fonctionné ?</string>
     <string name="yes_it_worked">Oui, ça a marché !</string>
     <string name="got_code_didnt_work">J\'ai reçu le code, mais ça n\'a pas marché !</string>
     <string name="didnt_get_code">Je n\'ai reçu aucun code !</string>

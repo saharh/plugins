@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="did_it_work_explain">You should\'ve received the verification code for WhatsApp by now.\n\nHave you received the code?\nDid the code work?</string>
+    <string name="did_it_work_explain">You should\'ve received the verification code by now.\n\nHave you received the code?\nDid the code work?</string>
     <string name="yes_it_worked">Yes, it worked!</string>
     <string name="got_code_didnt_work">I got the code, but it didn\'t work!</string>
     <string name="didnt_get_code">I didn\'t get any code!</string>

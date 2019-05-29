@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><resources>
-    <string name="did_it_work_explain">Sie sollten den Bestätigungscode für WhatsApp jetzt erhalten haben.\n\nHaben Sie den Code erhalten?\nHat der Code funktioniert?</string>
+    <string name="did_it_work_explain">Sie sollten den Bestätigungscode jetzt erhalten haben.\n\nHaben Sie den Code erhalten?\nHat der Code funktioniert?</string>
     <string name="yes_it_worked">Ja, er hat funktioniert!</string>
     <string name="got_code_didnt_work">Ich habe den Code bekommen, aber er hat nicht funktioniert!</string>
     <string name="didnt_get_code">Ich habe keinen Code erhalten!</string>

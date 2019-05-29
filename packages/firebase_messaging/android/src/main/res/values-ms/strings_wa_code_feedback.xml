@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><resources>
-    <string name="did_it_work_explain">Anda seharusnya telah menerima kod pengesahan untuk WhatsApp sekarang.\n\nAdakah anda telah menerima kod?\nAdakah kod boleh digunakan?</string>
+    <string name="did_it_work_explain">Anda seharusnya telah menerima kod pengesahan sekarang.\n\nAdakah anda telah menerima kod?\nAdakah kod boleh digunakan?</string>
     <string name="yes_it_worked">Ya, ia berfungsi!</string>
     <string name="got_code_didnt_work">Saya mendapat kod, tetapi ia tidak berfungsi!</string>
     <string name="didnt_get_code">Saya tidak mendapat sebarang kod!</string>

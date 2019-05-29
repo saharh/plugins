@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><resources>
-    <string name="did_it_work_explain">WhatsApp için doğrulama kodu gelmiş olmalı.\n\nKodu aldınız mı?\nKod işe yaradı mı?</string>
+    <string name="did_it_work_explain">Doğrulama kodu gelmiş olmalı.\n\nKodu aldınız mı?\nKod işe yaradı mı?</string>
     <string name="yes_it_worked">Evet, işe yaradı!</string>
     <string name="got_code_didnt_work">Kodu aldım ama işe yaramadı!</string>
     <string name="didnt_get_code">Herhangi bir kod almadım!</string>
