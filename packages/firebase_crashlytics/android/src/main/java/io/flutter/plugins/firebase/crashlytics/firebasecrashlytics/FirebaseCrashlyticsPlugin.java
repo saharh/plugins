@@ -1,16 +1,20 @@
 package io.flutter.plugins.firebase.crashlytics.firebasecrashlytics;
 
 import android.util.Log;
+
 import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.answers.Answers;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import io.fabric.sdk.android.Fabric;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 /** FirebaseCrashlyticsPlugin */
 public class FirebaseCrashlyticsPlugin implements MethodCallHandler {
@@ -24,7 +28,11 @@ public class FirebaseCrashlyticsPlugin implements MethodCallHandler {
     channel.setMethodCallHandler(new FirebaseCrashlyticsPlugin());
 
     if (!Fabric.isInitialized()) {
-      Fabric.with(registrar.context(), new Crashlytics());
+      Fabric.with(registrar.context(), new Crashlytics(), new Answers());
+//      Fabric.with(registrar.context(), new Crashlytics.Builder()
+//              .core(new CrashlyticsCore.Builder().build())
+//              .answers(new Answers())
+//              .build());
     }
   }
 
@@ -85,10 +93,32 @@ public class FirebaseCrashlyticsPlugin implements MethodCallHandler {
     } else if (call.method.equals("Crashlytics#setUserName")) {
       Crashlytics.setUserName((String) call.argument("name"));
       result.success(null);
+//    } else if (call.method.equals("Crashlytics#logEvent")) {
+//      handleLogEvent(call, result);
     } else {
       result.notImplemented();
     }
   }
+
+//  private void handleLogEvent(MethodCall call, Result result) {
+//    Answers answers = Crashlytics.getInstance().answers;
+//    Map<String, Object> info = (Map<String, Object>) call.arguments;
+//    String eventName = (String) info.get("name");
+//    Map<String, Object> eventParams = (Map<String, Object>) info.get("parameters");
+//    CustomEvent event = new CustomEvent(eventName);
+//    if (eventParams != null) {
+//      for (Map.Entry<String, Object> entry: eventParams.entrySet()) {
+//        Object value = entry.getValue();
+//        if (value instanceof Number) {
+//          event.putCustomAttribute(entry.getKey(), (Number) value);
+//        } else if (value instanceof String) {
+//          event.putCustomAttribute(entry.getKey(), (String) value);
+//        }
+//      }
+//    }
+//    answers.logCustom(event);
+//    result.success(null);
+//  }
 
   /**
    * Extract StackTraceElement from Dart stack trace element.

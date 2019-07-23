@@ -196,4 +196,11 @@ class Crashlytics {
     }
     return elements;
   }
+
+//  void logEvent({@required String name, Map<String, dynamic> parameters}) {
+//    channel.invokeMethod<void>('Crashlytics#logEvent', <String, dynamic>{
+//      'name': name,
+//      'parameters': parameters,
+//    });
+//  }
 }

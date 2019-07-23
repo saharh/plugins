@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/material.dart';
 
 void main() {
   // Set `enableInDevMode` to true to see reports while in debug mode
@@ -54,6 +53,13 @@ class _MyAppState extends State<MyApp> {
                     // confirmation that errors are being correctly reported.
                     Crashlytics.instance.crash();
                   }),
+//              FlatButton(
+//                  child: const Text('logEvent'),
+//                  onPressed: () {
+//                    // Use Crashlytics to throw an error. Use this for
+//                    // confirmation that errors are being correctly reported.
+//                    Crashlytics.instance.logEvent(name: "Test", parameters: <String, dynamic>{"a": "b", "c": 2});
+//                  }),
               FlatButton(
                   child: const Text('Throw Error'),
                   onPressed: () {
