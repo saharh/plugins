@@ -4,14 +4,17 @@
 
 package io.flutter.plugins.inapppurchase;
 
-import androidx.annotation.Nullable;
 import com.android.billingclient.api.Purchase;
 import com.android.billingclient.api.Purchase.PurchasesResult;
+import com.android.billingclient.api.PurchaseHistoryRecord;
 import com.android.billingclient.api.SkuDetails;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+
+import androidx.annotation.Nullable;
 
 /** Handles serialization of {@link com.android.billingclient.api.BillingClient} related objects. */
 /*package*/ class Translator {
@@ -60,6 +63,19 @@ import java.util.List;
     return info;
   }
 
+  static HashMap<String, Object> fromPurchaseHistoryRecord(PurchaseHistoryRecord purchaseHistoryRecord) {
+    HashMap<String, Object> info = new HashMap<>();
+//    info.put("orderId", purchaseHistoryRecord.getOrderId());
+//    info.put("packageName", purchaseHistoryRecord.getPackageName());
+    info.put("purchaseTime", purchaseHistoryRecord.getPurchaseTime());
+    info.put("purchaseToken", purchaseHistoryRecord.getPurchaseToken());
+    info.put("signature", purchaseHistoryRecord.getSignature());
+    info.put("sku", purchaseHistoryRecord.getSku());
+//    info.put("isAutoRenewing", purchaseHistoryRecord.isAutoRenewing());
+    info.put("originalJson", purchaseHistoryRecord.getOriginalJson());
+    return info;
+  }
+
   static List<HashMap<String, Object>> fromPurchasesList(@Nullable List<Purchase> purchases) {
     if (purchases == null) {
       return Collections.emptyList();
@@ -68,6 +84,17 @@ import java.util.List;
     List<HashMap<String, Object>> serialized = new ArrayList<>();
     for (Purchase purchase : purchases) {
       serialized.add(fromPurchase(purchase));
+    }
+    return serialized;
+  }
+  static List<HashMap<String, Object>> fromPurchaseHistoryRecordList(@Nullable List<PurchaseHistoryRecord> purchases) {
+    if (purchases == null) {
+      return Collections.emptyList();
+    }
+
+    List<HashMap<String, Object>> serialized = new ArrayList<>();
+    for (PurchaseHistoryRecord purchase : purchases) {
+      serialized.add(fromPurchaseHistoryRecord(purchase));
     }
     return serialized;
   }
