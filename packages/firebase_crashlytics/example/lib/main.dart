@@ -1,5 +1,8 @@
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 
 void main() {
   // Set `enableInDevMode` to true to see reports while in debug mode
@@ -9,10 +12,11 @@ void main() {
   Crashlytics.instance.enableInDevMode = true;
 
   // Pass all uncaught errors to Crashlytics.
-  FlutterError.onError = (FlutterErrorDetails details) {
-    Crashlytics.instance.onError(details);
-  };
-  runApp(MyApp());
+  FlutterError.onError = Crashlytics.instance.recordFlutterError;
+
+  runZoned<Future<void>>(() async {
+    runApp(MyApp());
+  }, onError: Crashlytics.instance.recordError);
 }
 
 class MyApp extends StatefulWidget {
@@ -53,19 +57,23 @@ class _MyAppState extends State<MyApp> {
                     // confirmation that errors are being correctly reported.
                     Crashlytics.instance.crash();
                   }),
-//              FlatButton(
-//                  child: const Text('logEvent'),
-//                  onPressed: () {
-//                    // Use Crashlytics to throw an error. Use this for
-//                    // confirmation that errors are being correctly reported.
-//                    Crashlytics.instance.logEvent(name: "Test", parameters: <String, dynamic>{"a": "b", "c": 2});
-//                  }),
               FlatButton(
                   child: const Text('Throw Error'),
                   onPressed: () {
                     // Example of thrown error, it will be caught and sent to
                     // Crashlytics.
                     throw StateError('Uncaught error thrown by app.');
+                  }),
+              FlatButton(
+                  child: const Text('Async out of bounds'),
+                  onPressed: () {
+                    // Example of an exception that does not get caught
+                    // by `FlutterError.onError` but is caught by the `onError` handler of
+                    // `runZoned`.
+                    Future<void>.delayed(Duration(seconds: 2), () {
+                      final List<int> list = <int>[];
+                      print(list[100]);
+                    });
                   }),
             ],
           ),
