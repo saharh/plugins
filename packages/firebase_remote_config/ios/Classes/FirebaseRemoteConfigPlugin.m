@@ -59,7 +59,8 @@
     result(nil);
   } else if ([@"RemoteConfig#fetch" isEqualToString:call.method]) {
     FIRRemoteConfig *remoteConfig = [FIRRemoteConfig remoteConfig];
-    long expiration = (long)call.arguments[@"expiration"];
+    NSNumber* expirationArg = call.arguments[@"expiration"];
+    long expiration = [expirationArg longValue];
 
     [remoteConfig
         fetchWithExpirationDuration:expiration
