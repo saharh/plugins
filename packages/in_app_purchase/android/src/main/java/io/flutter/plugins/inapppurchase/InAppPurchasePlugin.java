@@ -71,8 +71,6 @@ public class InAppPurchasePlugin implements MethodCallHandler {
 
         private MethodNames() {
         }
-
-        ;
     }
 
     private HashMap<String, SkuDetails> cachedSkus = new HashMap<>();
