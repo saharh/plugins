@@ -220,7 +220,9 @@ public class InAppPurchasePlugin implements MethodCallHandler {
     if (accountId != null && !accountId.isEmpty()) {
       paramsBuilder.setAccountId(accountId);
     }
-    result.success(billingClient.launchBillingFlow(activity, paramsBuilder.build()));
+    BillingResult billingResult = billingClient.launchBillingFlow(activity, paramsBuilder.build());
+
+    result.success(billingResult.getResponseCode());
   }
 
   private void consumeAsync(String purchaseToken, final Result result) {
