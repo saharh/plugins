@@ -216,7 +216,7 @@ class MethodCallHandlerImpl
     BillingFlowParams.Builder paramsBuilder =
         BillingFlowParams.newBuilder().setSkuDetails(skuDetails);
     if (accountId != null && !accountId.isEmpty()) {
-      paramsBuilder.setAccountId(accountId);
+      paramsBuilder.setObfuscatedAccountId(accountId);
     }
     result.success(
         Translator.fromBillingResult(
@@ -239,9 +239,9 @@ class MethodCallHandlerImpl
     ConsumeParams.Builder paramsBuilder =
         ConsumeParams.newBuilder().setPurchaseToken(purchaseToken);
 
-    if (developerPayload != null) {
-      paramsBuilder.setDeveloperPayload(developerPayload);
-    }
+//    if (developerPayload != null) {
+//      paramsBuilder.setDeveloperPayload(developerPayload);
+//    }
     ConsumeParams params = paramsBuilder.build();
 
     billingClient.consumeAsync(params, listener);
@@ -315,7 +315,7 @@ class MethodCallHandlerImpl
     }
     AcknowledgePurchaseParams params =
         AcknowledgePurchaseParams.newBuilder()
-            .setDeveloperPayload(developerPayload)
+//            .setDeveloperPayload(developerPayload)
             .setPurchaseToken(purchaseToken)
             .build();
     billingClient.acknowledgePurchase(
