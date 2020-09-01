@@ -1,3 +1,9 @@
+## 0.3.4+6
+
+* [iOS] Fixed: purchase dialog not showing always.
+* [iOS] Fixed: completing purchases could fail.
+* [iOS] Fixed: restorePurchases caused hang (call never returned).
+
 ## 0.3.4+5
 
 * Added necessary README docs for getting started with Android.
