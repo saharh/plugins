@@ -98,4 +98,46 @@ class Share {
     assert(path != null);
     return lookupMimeType(path) ?? 'application/octet-stream';
   }
+
+  static Future<String?> shareToFacebook({String msg = '', String url = ''}) async {
+    final Map<String, dynamic> params = <String, dynamic>{
+      'msg': msg,
+      'url': url,
+    };
+    return await channel.invokeMethod('shareFacebook', params);
+  }
+
+  static Future<String?> shareToTwitter({String msg = '', String url = ''}) async {
+    final Map<String, dynamic> params = <String, dynamic>{
+      'msg': msg,
+      'url': url,
+    };
+    return await channel.invokeMethod('shareTwitter', params);
+  }
+
+  static Future<String?> shareToWhatsApp(
+      {String msg = '', String base64Image = ''}) async {
+    final Map<String, dynamic> params = <String, dynamic>{
+      'msg': msg,
+      'url': base64Image,
+    };
+    return await channel.invokeMethod('shareWhatsApp', params);
+  }
+
+  static Future<String?> shareToWhatsApp4Biz(
+      {String msg = '', String base64Image = ''}) async {
+    final Map<String, dynamic> params = <String, dynamic>{
+      'msg': msg,
+      'url': base64Image,
+    };
+    return await channel.invokeMethod('shareWhatsApp4Biz', params);
+  }
+
+  static Future<String?> shareToWeChat({String msg = '', String url = ''}) async {
+    final Map<String, dynamic> params = <String, dynamic>{
+      'msg': msg,
+      'url': url,
+    };
+    return await channel.invokeMethod('shareWeChat', params);
+  }
 }

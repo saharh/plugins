@@ -95,6 +95,18 @@ class DemoAppState extends State<DemoApp> {
                       );
                     },
                   ),
+                  ElevatedButton(
+                    child: const Text('Share WhatsApp'),
+                    onPressed: () => _onShareWhatsapp(context),
+                  ),
+                  ElevatedButton(
+                    child: const Text('Share WhatsApp Biz'),
+                    onPressed: () => _onShareWhatsapp4Biz(context),
+                  ),
+                  ElevatedButton(
+                    child: const Text('Share WeChat'),
+                    onPressed: () => _onShareWeChat(context),
+                  ),
                 ],
               ),
             ),
@@ -131,6 +143,19 @@ class DemoAppState extends State<DemoApp> {
   }
 
   _onShareWithEmptyOrigin(BuildContext context) async {
-    await Share.share("text");
+    await Share.share(text);
   }
+
+  _onShareWhatsapp(BuildContext context) async {
+    await Share.shareToWhatsApp(msg: text);
+  }
+
+  _onShareWhatsapp4Biz(BuildContext context) async {
+    await Share.shareToWhatsApp4Biz(msg: text);
+  }
+
+  _onShareWeChat(BuildContext context) async {
+    await Share.shareToWeChat(msg: text);
+  }
+
 }

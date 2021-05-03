@@ -21,6 +21,7 @@ class MethodCallHandler implements MethodChannel.MethodCallHandler {
 
   @Override
   public void onMethodCall(MethodCall call, MethodChannel.Result result) {
+    String url, msg, title;
     switch (call.method) {
       case "share":
         expectMapArguments(call);
@@ -44,6 +45,31 @@ class MethodCallHandler implements MethodChannel.MethodCallHandler {
         } catch (IOException e) {
           result.error(e.getMessage(), null, null);
         }
+        break;
+      case "shareFacebook":
+        url = call.argument("url");
+        msg = call.argument("msg");
+        share.shareToFacebook(url, msg, result);
+        break;
+      case "shareTwitter":
+        url = call.argument("url");
+        msg = call.argument("msg");
+        share.shareToTwitter(url, msg, result);
+        break;
+      case "shareWhatsApp":
+        msg = call.argument("msg");
+        url = call.argument("url");
+        share.shareWhatsApp(url, msg, result, false);
+        break;
+      case "shareWhatsApp4Biz":
+        msg = call.argument("msg");
+        url = call.argument("url");
+        share.shareWhatsApp(url, msg, result, true);
+        break;
+      case "shareWeChat":
+        title = call.argument("title");
+        msg = call.argument("msg");
+        share.shareWeChat(msg, title, result);
         break;
       default:
         result.notImplemented();
