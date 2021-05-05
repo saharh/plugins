@@ -165,7 +165,10 @@ static NSString *const PLATFORM_CHANNEL = @"plugins.flutter.io/share";
                           withController:[UIApplication sharedApplication].keyWindow.rootViewController
                                   result: result];
         } else if ([@"shareTwitter" isEqualToString:call.method]) {
-            result(nil);
+            NSString *msg = arguments[@"msg"];
+            NSString *url = arguments[@"url"];
+            
+            [self shareToTwitterMessage:msg url:url result: result];
         } else if ([@"shareWhatsApp" isEqualToString:call.method]) {
             NSString *msg = arguments[@"msg"];
             NSString *url = arguments[@"url"];
@@ -265,12 +268,27 @@ withController:(UIViewController *)controller
                 withController:(UIViewController *)controller
                         result: (FlutterResult) result {
     FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
-    content.contentURL = [NSURL URLWithString:url];
+    if (url != nil) {
+        content.contentURL = [NSURL URLWithString:url];
+    }
     content.quote = msg;
     [FBSDKShareDialog showFromViewController:controller
                                   withContent:content
                                      delegate:nil];
     result(nil);
+}
+
++ (void)shareToTwitterMessage:(NSString *)msg url:(NSString *)url result: (FlutterResult) result {
+    NSString *urlTwitter = [NSString stringWithFormat:@"https://twitter.com/intent/tweet?text=%@&url=%@", msg, url];
+    NSURL * twitterURL = [NSURL URLWithString:[urlTwitter stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    if ([[UIApplication sharedApplication] canOpenURL: twitterURL]) {
+        [[UIApplication sharedApplication] openURL: twitterURL];
+        result(nil);
+    } else {
+        result([FlutterError errorWithCode:@"error"
+                                   message:@"Not allowed to launch twitter url"
+                                   details:nil]);
+    }
 }
 
 @end

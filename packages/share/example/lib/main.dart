@@ -104,6 +104,14 @@ class DemoAppState extends State<DemoApp> {
                     onPressed: () => _onShareWhatsapp4Biz(context),
                   ),
                   ElevatedButton(
+                    child: const Text('Share Twitter'),
+                    onPressed: () => _onShareTwitter(context),
+                  ),
+                  ElevatedButton(
+                    child: const Text('Share Facebook'),
+                    onPressed: () => _onShareFacebook(context),
+                  ),
+                  ElevatedButton(
                     child: const Text('Share WeChat'),
                     onPressed: () => _onShareWeChat(context),
                   ),
@@ -158,4 +166,11 @@ class DemoAppState extends State<DemoApp> {
     await Share.shareToWeChat(msg: text);
   }
 
+  _onShareTwitter(BuildContext context) async {
+    await Share.shareToTwitter(msg: text, url: "http://www.google.com");
+  }
+
+  _onShareFacebook(BuildContext context) async {
+    await Share.shareToFacebook(msg: text, url: "http://www.google.com");
+  }
 }
