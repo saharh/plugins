@@ -160,7 +160,10 @@ static NSString *const PLATFORM_CHANNEL = @"plugins.flutter.io/share";
         } else if ([@"shareFacebook" isEqualToString:call.method]) {
             NSString *msg = arguments[@"msg"];
             NSString *url = arguments[@"url"];
-            [self shareToFacebookMessage:msg url:url result: result];
+            [self shareToFacebookMessage:msg
+                                     url:url
+                          withController:[UIApplication sharedApplication].keyWindow.rootViewController
+                                  result: result];
         } else if ([@"shareTwitter" isEqualToString:call.method]) {
             result(nil);
         } else if ([@"shareWhatsApp" isEqualToString:call.method]) {
@@ -231,7 +234,8 @@ withController:(UIViewController *)controller
 }
 
 + (void)shareToWhatsAppMessage:(NSString *)msg url:(NSString *)url result: (FlutterResult) result {
-    NSString * urlWhats = [NSString stringWithFormat:@"whatsapp-consumer://send?text=%@",msg];
+//    NSString * urlWhats = [NSString stringWithFormat:@"whatsapp-consumer://send?text=%@",msg];
+    NSString * urlWhats = [NSString stringWithFormat:@"whatsapp://send?text=%@",msg]; // whatsapp shows both wa and w4b, while whatsapp-consumer is only wa
     NSURL * whatsappURL = [NSURL URLWithString:[urlWhats stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     if ([[UIApplication sharedApplication] canOpenURL: whatsappURL]) {
         [[UIApplication sharedApplication] openURL: whatsappURL];
@@ -256,11 +260,14 @@ withController:(UIViewController *)controller
     }
 }
 
-+ (void)shareToFacebookMessage:(NSString *)msg url:(NSString *)url result: (FlutterResult) result {
++ (void)shareToFacebookMessage:(NSString *)msg
+                           url:(NSString *)url
+                withController:(UIViewController *)controller
+                        result: (FlutterResult) result {
     FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
     content.contentURL = [NSURL URLWithString:url];
     content.quote = msg;
-    [FBSDKShareDialog showFromViewController:self
+    [FBSDKShareDialog showFromViewController:controller
                                   withContent:content
                                      delegate:nil];
     result(nil);
