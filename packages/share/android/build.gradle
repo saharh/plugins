@@ -4,7 +4,7 @@ version '1.0-SNAPSHOT'
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 
     dependencies {
@@ -15,7 +15,7 @@ buildscript {
 rootProject.allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 }
 
@@ -30,6 +30,7 @@ android {
     }
     lintOptions {
         disable 'InvalidPackage'
+        disable 'GradleDependency'
     }
 
     dependencies {
@@ -38,5 +39,18 @@ android {
 
         implementation 'com.facebook.android:facebook-share:9.1.1'
         implementation 'com.twitter.sdk.android:twitter:3.3.0'
+    }
+
+
+    testOptions {
+        unitTests.includeAndroidResources = true
+        unitTests.returnDefaultValues = true
+        unitTests.all {
+            testLogging {
+               events "passed", "skipped", "failed", "standardOut", "standardError"
+               outputs.upToDateWhen {false}
+               showStandardStreams = true
+            }
+        }
     }
 }
