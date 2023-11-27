@@ -20,6 +20,7 @@ import androidx.core.content.FileProvider;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
 import com.facebook.share.Sharer;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
@@ -292,6 +293,9 @@ class Share {
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                if (!FacebookSdk.isInitialized()) {
+                    FacebookSdk.sdkInitialize(getContext());
+                }
                 ShareDialog shareDialog = new ShareDialog(activity);
                 // this part is optional
                 shareDialog.registerCallback(callbackManager, new FacebookCallback<Sharer.Result>() {
