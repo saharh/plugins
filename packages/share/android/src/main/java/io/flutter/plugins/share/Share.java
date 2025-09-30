@@ -24,7 +24,6 @@ import com.facebook.FacebookSdk;
 import com.facebook.share.Sharer;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
-import com.twitter.sdk.android.tweetcomposer.TweetComposer;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -261,26 +260,26 @@ class Share {
      * @param msg    String
      * @param result Result
      */
-    void shareToTwitter(final String url, final String msg, final MethodChannel.Result result) {
-        activity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    TweetComposer.Builder builder = new TweetComposer.Builder(activity)
-                            .text(msg);
-                    if (url != null && url.length() > 0) {
-                        builder.url(new URL(url));
-                    }
-
-                    builder.show();
-                    result.success("success");
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                    result.error("error", e.toString(), "");
-                }
-            }
-        });
-    }
+//    void shareToTwitter(final String url, final String msg, final MethodChannel.Result result) {
+//        activity.runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    TweetComposer.Builder builder = new TweetComposer.Builder(activity)
+//                            .text(msg);
+//                    if (url != null && url.length() > 0) {
+//                        builder.url(new URL(url));
+//                    }
+//
+//                    builder.show();
+//                    result.success("success");
+//                } catch (MalformedURLException e) {
+//                    e.printStackTrace();
+//                    result.error("error", e.toString(), "");
+//                }
+//            }
+//        });
+//    }
 
     /**
      * share to Facebook

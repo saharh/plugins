@@ -8,7 +8,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.4.2'
+        classpath 'com.android.tools.build:gradle:8.13.0'
     }
 }
 
@@ -16,14 +16,13 @@ rootProject.allprojects {
     repositories {
         google()
         mavenCentral()
-        jcenter()
     }
 }
 
 apply plugin: 'com.android.library'
 
 android {
-    compileSdk 33
+    compileSdkVersion 35
 
     defaultConfig {
         minSdkVersion 16
@@ -39,7 +38,7 @@ android {
         implementation 'androidx.annotation:annotation:1.5.0'
 
         implementation 'com.facebook.android:facebook-share:16.2.0'
-        implementation 'com.twitter.sdk.android:twitter:3.3.0'
+//        implementation 'com.twitter.sdk.android:twitter:3.3.0' // no longer available
     }
 
 
@@ -54,4 +53,6 @@ android {
             }
         }
     }
+
+    namespace 'io.flutter.plugins.share'
 }

@@ -52,9 +52,9 @@ class MethodCallHandler implements MethodChannel.MethodCallHandler {
         share.shareToFacebook(url, msg, result);
         break;
       case "shareTwitter":
-        url = call.argument("url");
-        msg = call.argument("msg");
-        share.shareToTwitter(url, msg, result);
+//        url = call.argument("url");
+//        msg = call.argument("msg");
+//        share.shareToTwitter(url, msg, result);
         break;
       case "shareWhatsApp":
         msg = call.argument("msg");
